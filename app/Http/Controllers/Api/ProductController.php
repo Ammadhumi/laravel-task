@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-   
+
     public function index()
     {
         $products = Product::paginate(10);
         return response()->json($products);
     }
 
-    
+
     public function store(Request $request)
     {
         try {
@@ -42,21 +42,14 @@ class ProductController extends Controller
 
     public function destroy(string $id)
     {
-        try {
-            $product = Product::find($id);
+        $product = Product::find($id);
 
-            if (!$product) {
-                return response()->json(['message' => 'Product not found'], 404);
-            }
-
-            $product->delete();
-
-            return response()->json(['message' => 'Product deleted successfully']);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => 'Failed to delete product',
-                'error' => $e->getMessage()
-            ], 500);
+        if (!$product) {
+            return response()->json(['message' => 'Product not found'], 404);
         }
+
+        $product->delete();
+
+        return response()->json(['message' => 'Product deleted successfully']);
     }
 }
