@@ -1,14 +1,11 @@
 # Laravel Task Project
 
-This project implements various backend tasks using Laravel, including a REST API, external API consumption, web scraping, and custom HTTP requests.
-
-## Task Overview
 
 ### Task 1: Simple REST API (Products)
 - **Endpoints:**
-  - `GET /api/products`: List all products (with pagination).
-  - `POST /api/products`: Create a new product.
-  - `DELETE /api/products/{id}`: Delete a product by ID.
+  - `GET /api/products`: List all products (with pagination)
+  - `POST /api/products`: Create a new product
+  - `DELETE /api/products/{id}`: Delete a product 
 - **Features:** 
   - Eloquent ORM with `Product` model.
   - Form request validation.
@@ -40,45 +37,7 @@ This project implements various backend tasks using Laravel, including a REST AP
 ### Task 5: Documentation
 - This `README.md` file defines the project setup and features.
 
----
 
-## Setup Instructions
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd laravl-task
-   ```
-
-2. **Install Dependencies:**
-   ```bash
-   composer install
-   ```
-
-3. **Environment Setup:**
-   The project is pre-configured to use SQLite. Ensure the database file exists:
-   ```bash
-   touch database/database.sqlite
-   ```
-   (Actually, Laravel 11/12 usually handles this, but good to check).
-
-4. **Run Migrations:**
-   ```bash
-   php artisan migrate
-   ```
-
-5. **Start the Development Server:**
-   ```bash
-   php artisan serve
-   ```
-
-6. **Test Endpoints:**
+ **Test Endpoints:**
    You can use tools like Postman or `curl` to test the API at `http://localhost:8000/api/...`.
-
----
-
-## Technical Details
-
-- **Laravel Version:** 11.x / 12.x
-- **PHP Version:** 8.2+
-- **Architecture:** Controller-based API structure (`ProductController`, `TaskController`).
