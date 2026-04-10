@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Http;
 
 class TaskController extends Controller
 {
-    /**
-     * Task 2: Consume External API
-     */
+    
     public function getExternalPosts(Request $request)
     {
         $response = Http::get('https://jsonplaceholder.typicode.com/posts');
@@ -22,7 +20,6 @@ class TaskController extends Controller
             ];
         });
 
-        // Bonus: Search filter
         $search = $request->query('query');
         if ($search) {
             $posts = $posts->filter(function ($post) use ($search) {
@@ -32,10 +29,6 @@ class TaskController extends Controller
 
         return response()->json($posts);
     }
-
-    /**
-     * Task 3: Basic Web Scraping Task
-     */
     public function scrapeQuotes()
     {
         $url = 'http://quotes.toscrape.com/';
@@ -61,14 +54,12 @@ class TaskController extends Controller
         return response()->json($results);
     }
 
-    /**
-     * Task 4: HTTP Request with Custom Headers
-     */
+    
     public function customRequest()
     {
-        $url = 'https://httpbin.org/get'; // A public API that echoes back headers
+        $url = 'https://httpbin.org/get'; 
         
-        // Bonus: Retry logic
+        
         $response = Http::withHeaders([
             'User-Agent' => 'Antigravity/1.0',
             'Accept' => 'application/json',
